@@ -1,0 +1,55 @@
+// Giải thuật : https://yarndev.wordpress.com/2024/01/16/two-sum/
+
+// Javascript
+
+function twoSum(nums, target) {
+    const indexMap = {};
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (indexMap.hasOwnProperty(complement)) {
+            return [indexMap[complement], i];
+        }
+        indexMap[nums[i]] = i;
+    }
+    return [];
+}
+
+
+// Example
+
+const nums = [3, 2, 4];
+const target = 6;
+const result = twoSum(nums, target);
+console.log(result);
+
+// C++
+
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+std::vector<int> twoSum(const std::vector<int>& nums, int target) {
+    std::unordered_map<int, int> indexMap;
+    for (int i = 0; i < nums.size(); ++i) {
+        int complement = target - nums[i];
+        if (indexMap.find(complement) != indexMap.end()) {
+            return {indexMap[complement], i};
+        }
+        indexMap[nums[i]] = i;
+    }
+
+    return {};
+}
+
+
+int main() {
+    std::vector<int> nums = {3, 2, 4};
+    int target = 6;
+    std::vector<int> result = twoSum(nums, target);
+    // Print the result
+    for (int i : result) {
+        std::cout << i << " ";
+    }
+
+    return 0;
+}
