@@ -1,0 +1,70 @@
+Find the Index of the First Occurrence in a String
+
+Problem : https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+Giải thuật : https://yarndev.wordpress.com/2024/01/28/find-the-index-of-the-first-occurrence-in-a-string/
+
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+ 
+
+Example 1:
+
+Input: haystack = "sadbutsad", needle = "sad"
+Output: 0
+Explanation: "sad" occurs at index 0 and 6.
+The first occurrence is at index 0, so we return 0.
+Example 2:
+
+Input: haystack = "leetcode", needle = "leeto"
+Output: -1
+Explanation: "leeto" did not occur in "leetcode", so we return -1.
+ 
+
+Constraints:
+
+1 <= haystack.length, needle.length <= 104
+haystack and needle consist of only lowercase English characters.
+
+Code Javascript use indexOf
+
+/**
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
+ */
+var strStr = function(haystack, needle) {
+    if (needle === "") {
+        return 0;
+    }
+ 
+    const index = haystack.indexOf(needle);
+    return index;
+};
+ 
+// Example usage:
+const haystack = "hello world";
+const needle = "world";
+const result = strStr(haystack, needle);
+console.log(result); // Output: 6
+
+Code C++
+
+class Solution {
+public:
+    int strStr(std::string haystack, std::string needle) {
+        if (needle.empty()) {
+            return 0;
+        }
+ 
+        int haystackLen = haystack.length();
+        int needleLen = needle.length();
+ 
+        for (int i = 0; i <= haystackLen - needleLen; ++i) {
+            if (haystack.substr(i, needleLen) == needle) {
+                return i;
+            }
+        }
+ 
+        return -1;  // Needle not found in haystack.
+    }
+};
