@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int checkValue(int value)
+{
+    int tmpMod = value%5;
+    int tmpDiv = value/5;
+    
+    if (value < 38 || tmpMod == 0 || tmpMod < 3) return value; else 
+    if (tmpMod > 2) return tmpDiv * 5 + 5;
+    return 0;
+ }
+
+int main()
+{
+    int n;
+    int value;
+    cin>>n;
+    for (int i = 1 ; i<=n ; i++){
+        cin>>value;
+        cout<<checkValue(value)<<endl;
+    }
+}
