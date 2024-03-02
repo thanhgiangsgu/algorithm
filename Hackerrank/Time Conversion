@@ -1,0 +1,24 @@
+ 
+#include <bits/stdc++.h>
+#include <cstdlib>
+#include <stdlib.h>
+using namespace std;
+
+int main(){
+    string s;
+    cin >> s;
+    string hour = s.substr(0,2);
+    string time = s.substr(2,6);
+    string day = s.substr(8,2);
+    int num = (int(hour[0]) - 48)*10 + int(hour[1]) - 48;
+    
+    if ( day == "PM" && num < 12)
+    {
+        num+=12;
+    } else if (day == "AM" && num == 12) {
+        num  = 0;
+    }
+    if (num < 10)
+        cout<< 0;
+    cout<<num<<time;
+}
