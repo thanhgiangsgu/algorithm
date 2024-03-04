@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int x1, v1, x2, v2;
+    cin >> x1 >> v1 >> x2 >> v2;
+    int index = 0;
+    bool check = false;
+    while ( (x1 + index * v1 <= x2 + index * v2) && ( x1 < x2 ) )
+    {
+        if ( x1 + index * v1 == x2 + index * v2 )
+            check = true;
+        index++;
+    }
+    if (check) cout<<"YES"; else cout<<"NO";
+}
+
