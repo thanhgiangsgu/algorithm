@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int startPoint, endPoint;
+    int locaApple, locaOrange;
+    int indexApple, indexOrange;
+    int valueApple = 0, valueOrange = 0;
+    int value;
+    
+    cin >> startPoint >> endPoint;
+    cin >> locaApple >> locaOrange;
+    cin >> indexApple >> indexOrange;
+    for (int i = 1 ; i <= indexApple ; i++)
+        {
+            cin >> value;
+            value += locaApple;
+            if (value >= startPoint && value <= endPoint)
+                valueApple++;
+        }
+    for (int i = 1 ; i <= indexOrange ; i++)
+        {
+            cin >> value;
+            value += locaOrange;
+            if (value >= startPoint && value <= endPoint)
+                valueOrange++;
+        }
+        cout<<valueApple<<endl;
+        cout<<valueOrange;
+}
