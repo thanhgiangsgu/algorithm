@@ -1,0 +1,23 @@
+Save the Prisoner!#include <iostream>
+
+using namespace std;
+
+int saveThePrisoner(int n, int m, int s) {
+    int tmp = (m + s - 1) % n;
+    if (tmp == 0) {
+        return n;
+    } else {
+        return tmp;
+    }
+}
+
+int main(){
+    int t,n,m,s;
+    cin >> t;
+    
+    for (int i = 1; i <= t; i++)
+    {
+        cin >> n >> m >> s;
+        cout<<saveThePrisoner(n,m,s)<<endl;
+    }
+}
